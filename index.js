@@ -1,27 +1,27 @@
 module.exports = {
 
-  loadPlugin: function() {
+    loadPlugin: function () {
 
-    module.exports = Object.assign(module.exports, {
+        module.exports = Object.assign(module.exports, {
 
-      'migrator:migration:hook:require': function() {
+            'migrator:migration:hook:require': function () {
 
-        // We use ts-node because the official TypeScript module does not implement the register() method
-        require('ts-node/register');
+                // We use ts-node because the official TypeScript module does not implement the register() method
+                // require('ts-node/register');
 
-        /**
-          * Return value of this hook can be either a pure value or a Promise.
-          */
-        return {
-          extensions: 'ts'
-        };
-      }
-    });
+                /**
+                  * Return value of this hook can be either a pure value or a Promise.
+                  */
+                return {
+                    extensions: 'ts'
+                };
+            }
+        });
 
-    delete module.exports.loadPlugin;
-  },
-  name: 'typescript',
-  hooks: [
-    'migrator:migration:hook:require'
-  ]
+        delete module.exports.loadPlugin;
+    },
+    name: 'typescript',
+    hooks: [
+        'migrator:migration:hook:require'
+    ]
 };
